@@ -4,7 +4,7 @@ exports.handler = async function (event, context) {
   const GHL_API_KEY = process.env.GHL_API_KEY;
 
   try {
-    const response = await fetch('https://rest.gohighlevel.com/v1/products', {
+    const response = await fetch('https://rest.gohighlevel.com/products', {
       method: 'GET',
       headers: {
         Authorization: GHL_API_KEY,
