@@ -1,4 +1,4 @@
-const fetch = require('node-fetch'); // required in Node < 18
+const fetch = require('node-fetch'); // only needed if Node < 18
 
 exports.handler = async function (event, context) {
   const GHL_API_KEY = process.env.GHL_API_KEY;
