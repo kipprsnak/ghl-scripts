@@ -14,7 +14,7 @@ exports.handler = async function (event, context) {
       }
     });
 
-    // Check for bad status code
+    // Catch unexpected non-JSON output
     if (!response.ok) {
       const errorText = await response.text();
       return {
