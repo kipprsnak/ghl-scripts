@@ -1,4 +1,4 @@
-const fetch = require('node-fetch'); // needed if using Node < 18 (which Netlify does by default)
+const fetch = require('node-fetch');
 
 exports.handler = async function (event, context) {
   const GHL_API_KEY = process.env.GHL_API_KEY;
@@ -7,19 +7,26 @@ exports.handler = async function (event, context) {
     const response = await fetch('https://services.leadconnectorhq.com/products', {
       method: 'GET',
       headers: {
-        Authorization: GHL_API_KEY,               // <-- Must include 'Bearer' prefix
+        Authorization: GHL_API_KEY,                 // e.g., Bearer eyJhbGciOi...
         'Content-Type': 'application/json',
-        'Accept': 'application/json',             // <-- Tells server to return JSON
-        'Version': '2021-07-28'                   // <-- Required by GHL API
+        Accept: 'application/json',                // ✅ Ensures the server returns JSON
+        Version: '2021-07-28'                      // ✅ Required by GHL API
       }
     });
 
-    const data = await response.json();
+    // DEBUG: Try to parse raw body first
+    const rawText = await response.text();
 
+    // Log raw text back to browser so we can inspect it
     return {
       statusCode: 200,
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        status: response.status,
+        statusText: response.statusText,
+        rawBody: rawText
+      })
     };
+
   } catch (err) {
     return {
       statusCode: 500,
