@@ -1,5 +1,5 @@
 (async function () {
-  const API_KEY = 'Bearer YOUR_SUBACCOUNT_API_KEY';
+  const API_KEY = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6IlhqOTNKOFN6WDMzQ3gxcFFhbHpNIiwidmVyc2lvbiI6MSwiaWF0IjoxNzQ4MDU1NDMxMjg4LCJzdWIiOiI0cUF3eFFNV0RzTzNuWjlWOTRVUiJ9.WBKeiZSo9_dGSaxNo4ff8q-UarBRWfYPymSPK9gF8PQ';
   const API_VERSION = '2021-07-28';
   const containerId = 'custom-product-store';
 
